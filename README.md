@@ -13,6 +13,11 @@ O resultado obtido está na pasta imagens e houve sucesso na conexão.
 Logo após utilizei a tecnica spraing para descobrir os usuários do sistema e tentar logar com os usuários descobertos, para isso utilizei o seguinte comando:
 
 #enum4linux -a 10.0.2.4 | tee enum4.output.txt
-que mostrou diversas informações do sistema, inclusive uma lista de usuários na qual tentei conectar e consegui utilizando usuário user e senha password123.
+que mostrou diversas informações do sistema, inclusive uma lista de usuários na qual tentei conectar e consegui utilizando usuário e senha msfadmin utilizando o comando:
 
-Uma parte da saida do comando pode ser vista na pasta imagens.
+#smbclient -L //10.0.2.4 -U msfadmin
+com a senha msfadmin onde consegui com sucesso conectar.
+
+A saida dos comandos enum4linux e smbclient podem ser encontrados na pasta imagens.
+
+Pudemos ter a conclusão que devemos utilizar todos os artificios para dificultar a intrusão de pessoas não desejadas, alguns deles podem ser senhas complexas, 2 fatores de autenticação, bloqueio de usuário e IP após x tentativas, utilização de CAPTCHA entre outros.
